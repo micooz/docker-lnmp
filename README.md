@@ -11,7 +11,7 @@ The whole app is divided into four Containers:
 
 1. Nginx is running in `Nginx` Container. Recieves requests from Clients then respond.
 2. My App business-logic code and scripts is located at `WWW` Container. It just stores php scripts and static files.
-3. PHP or PHP-FPM is put in `PHP-FPM` Container, it fetches php scripts from `WWW` then tnterpretes and executes them, making response to Nginx Server.
+3. PHP or PHP-FPM is put in `PHP-FPM` Container, it fetches php scripts from `WWW` then interpretes and executes them, making response to Nginx Server.
 If necessary, it will connect to `MySQL` server as well.
 4. Considering the flexibility and security, `MySQL` server must be independent of other containers.
 
