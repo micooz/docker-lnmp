@@ -25,10 +25,8 @@ RUN apt-get install -y pwgen curl git unzip ssh openssh-server sqlite3 vim
 # RUN npm install -g uglify-js
 
 # Copy Application
-COPY ./app /www
-
-COPY conf.sh /conf.sh
-RUN chmod 755 /conf.sh
+COPY www/app /www
+COPY www/conf.sh /conf.sh
 
 VOLUME ["/www"]
 

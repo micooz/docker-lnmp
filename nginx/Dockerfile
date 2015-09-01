@@ -4,7 +4,7 @@ MAINTAINER Micooz <micooz@hotmail.com>
 # The configuration for nginx image is quite simple,
 # a nginx.conf is enough.
 
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx/nginx.conf /etc/nginx/nginx.conf
 
 # If your site support https, you should specify
 # the following files to your nginx:
