@@ -5,7 +5,7 @@
 # DO NOT put your password or other classified information to this file!
 
 # APP_KEY=`pwgen -c -n -s -1 32`
-# DB_HOST="locahost"
+# DB_HOST="mysql" NOTE: see --link in README
 # DB_DATABASE="micooz"
 # DB_USERNAME="root"
 # DB_PASSWORD=`pwgen -c -n -s -1 12`
