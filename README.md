@@ -45,7 +45,7 @@ You must run the contaners in the following sequence:
 The first two of which can be exchanged.
 
     # Run MySQL Container
-    $ sudo docker run --name mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql
+    $ sudo docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql
     # see https://github.com/docker-library/docs/tree/master/mysql
     
     # Run WWW Container
