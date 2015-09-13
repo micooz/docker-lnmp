@@ -28,6 +28,8 @@ RUN apt-get install -y pwgen curl git unzip ssh openssh-server sqlite3 vim
 COPY www/app /www
 COPY www/conf.sh /conf.sh
 
+RUN chmod 755 /conf.sh
+
 VOLUME ["/www"]
 
 CMD /conf.sh
