@@ -56,7 +56,7 @@ The first two of which can be exchanged.
     # see https://github.com/docker-library/docs/tree/master/php
     
     # Run Nginx Container
-    $ sudo docker run --name nginx -p 80:80 -p 443:443 --volumes-from www --link php-fpm:fpmservice -d micooz/nginx
+    $ sudo docker run --name nginx -p 80:80 -p 443:443 --volumes-from www  -v $(pwd):/www --link php-fpm:fpmservice -d micooz/nginx
     # see https://github.com/docker-library/docs/tree/master/nginx
     
 Have fun!
