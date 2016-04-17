@@ -21,6 +21,9 @@ If necessary, it will connect to `MySQL` server as well.
 
 At first, you should have had [Docker](https://docs.docker.com) installed.
 
+    # Add https(SSL) support 
+    # before build the Nginx Image , you should put your server.crt(or server.pem) , server.key to ./ca folder 
+    
     # build Nginx Image
     $ sudo docker build --tag sndnvaps/nginx -f nginx/Dockerfile .
     
@@ -104,6 +107,7 @@ Have fun!
 # Author
 
 Micooz <micooz@hotmail.com>
+sndnvaps <sndnvaps@gmail.com>
 
 # License
 
