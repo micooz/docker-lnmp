@@ -1,5 +1,5 @@
-FROM debian:jessie
-MAINTAINER Micooz <micooz@hotmail.com>
+FROM ubuntu:14.04
+MAINTAINER sndnvaps <sndnvaps@gmail.com>
 
 # Basic Requirements
 RUN apt-get update
