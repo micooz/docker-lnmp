@@ -52,7 +52,9 @@ The first two of which can be exchanged.
     # see https://github.com/docker-library/docs/tree/master/mysql
     
     # Run WWW Container
-    $ sudo docker run --name www -d sndnvaps/www
+    # enable sshd for ssh connect
+    # connect ->$ ssh admin@localhost -p 5001 
+    $ sudo docker run --name www -p 5001:22 -d sndnvaps/www
     
     # Run PHP-FPM Container
     $ sudo docker run --name php-fpm --volumes-from www --link mysql:mysql -d sndnvaps/php-fpm
