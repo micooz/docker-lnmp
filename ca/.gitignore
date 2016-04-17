@@ -1,2 +1,5 @@
 *
 !.gitignore
+*.key
+*.pem
+*.crt
