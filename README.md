@@ -61,7 +61,9 @@ The first two of which can be exchanged.
     # see https://github.com/docker-library/docs/tree/master/php
     
     # Run Nginx Container
-    $ sudo docker run --name nginx -p 80:80 -p 443:443 --volumes-from www --link php-fpm:fpmservice -d sndnvaps/nginx
+    # enable sshd for ssh connect
+    # connect ->$ ssh admin@localhost -p 5002
+    $ sudo docker run --name nginx -p 80:80 -p 443:443 -p 5002:22 --volumes-from www --link php-fpm:fpmservice -d sndnvaps/nginx
     # see https://github.com/docker-library/docs/tree/master/nginx
     
 
