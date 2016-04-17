@@ -59,6 +59,44 @@ The first two of which can be exchanged.
     $ sudo docker run --name nginx -p 80:80 -p 443:443 --volumes-from www --link php-fpm:fpmservice -d sndnvaps/nginx
     # see https://github.com/docker-library/docs/tree/master/nginx
     
+
+### Stop Containers
+
+You must stop the contaners in the following sequence:
+
+1. Nginx Container 
+2. PHP-FPM Container
+3. WWW Container
+4. MySQL Container 
+
+    # get the runing container commit id
+    $ docker ps 
+
+    ```
+    root@sn-WorkStation:/opt/docker-lnmp# docker ps
+CONTAINER ID        IMAGE                     COMMAND                CREATED              STATUS              PORTS                                      NAMES
+93a5574fa67a        sndnvaps/nginx:latest     "nginx -g 'daemon of   4 seconds ago        Up 3 seconds        0.0.0.0:80->80/tcp, 0.0.0.0:443->443/tcp   nginx               
+4d6690e1bc39        sndnvaps/php-fpm:latest   "php-fpm"              23 seconds ago       Up 22 seconds       9000/tcp                                   php-fpm             
+1cd4d1fd86b8        sndnvaps/www:latest       "/bin/sh -c /conf.sh   41 seconds ago       Up 40 seconds                                                  www                 
+76d8d9fb5136        mysql:latest              "docker-entrypoint.s   About a minute ago   Up About a minute   0.0.0.0:3306->3306/tcp                     mysql    
+```
+
+    # stop the container one by one 
+    
+    # stop Nginx Container 
+    $ docker stop 93a5574fa67a
+    
+    # stop PHP-FPM Container 
+    $ docker stop 4d6690e1bc39
+    
+    # stop WWW Container 
+    $ docker stop 1cd4d1fd86b8
+    
+    # stop MySQL Container 
+    $ docker stop 76d8d9fb5136
+
+
+    
 Have fun!
 
 # Author
