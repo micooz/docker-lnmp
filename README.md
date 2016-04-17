@@ -49,14 +49,14 @@ The first two of which can be exchanged.
     # see https://github.com/docker-library/docs/tree/master/mysql
     
     # Run WWW Container
-    $ sudo docker run --name www -d micooz/www
+    $ sudo docker run --name www -d sndnvaps/www
     
     # Run PHP-FPM Container
-    $ sudo docker run --name php-fpm --volumes-from www --link mysql:mysql -d micooz/php-fpm
+    $ sudo docker run --name php-fpm --volumes-from www --link mysql:mysql -d sndnvaps/php-fpm
     # see https://github.com/docker-library/docs/tree/master/php
     
     # Run Nginx Container
-    $ sudo docker run --name nginx -p 80:80 -p 443:443 --volumes-from www --link php-fpm:fpmservice -d micooz/nginx
+    $ sudo docker run --name nginx -p 80:80 -p 443:443 --volumes-from www --link php-fpm:fpmservice -d sndnvaps/nginx
     # see https://github.com/docker-library/docs/tree/master/nginx
     
 Have fun!
