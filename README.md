@@ -22,13 +22,13 @@ If necessary, it will connect to `MySQL` server as well.
 At first, you should have had [Docker](https://docs.docker.com) installed.
 
     # build Nginx Image
-    $ sudo docker build --tag micooz/nginx -f nginx/Dockerfile .
+    $ sudo docker build --tag sndnvaps/nginx -f nginx/Dockerfile .
     
     # build PHP-FPM Image
-    $ sudo docker build --tag micooz/php-fpm -f php-fpm/Dockerfile .
+    $ sudo docker build --tag sndnvaps/php-fpm -f php-fpm/Dockerfile .
     
     # build WWW Image
-    $ sudo docker build --tag micooz/www -f www/Dockerfile .
+    $ sudo docker build --tag sndnvaps/www -f www/Dockerfile .
     
     # pull MySQL Official Image
     $ sudo docker pull mysql:latest
