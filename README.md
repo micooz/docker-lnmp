@@ -72,14 +72,16 @@ You must stop the contaners in the following sequence:
     # get the runing container commit id
     $ docker ps 
 
-    ```
+```
     root@sn-WorkStation:/opt/docker-lnmp# docker ps
 CONTAINER ID        IMAGE                     COMMAND                CREATED              STATUS              PORTS                                      NAMES
 93a5574fa67a        sndnvaps/nginx:latest     "nginx -g 'daemon of   4 seconds ago        Up 3 seconds        0.0.0.0:80->80/tcp, 0.0.0.0:443->443/tcp   nginx               
 4d6690e1bc39        sndnvaps/php-fpm:latest   "php-fpm"              23 seconds ago       Up 22 seconds       9000/tcp                                   php-fpm             
 1cd4d1fd86b8        sndnvaps/www:latest       "/bin/sh -c /conf.sh   41 seconds ago       Up 40 seconds                                                  www                 
 76d8d9fb5136        mysql:latest              "docker-entrypoint.s   About a minute ago   Up About a minute   0.0.0.0:3306->3306/tcp                     mysql    
+
 ```
+
 
     # stop the container one by one 
     
@@ -106,5 +108,6 @@ Micooz <micooz@hotmail.com>
 # License
 
 MIT
+
 
   [1]: structure.png
