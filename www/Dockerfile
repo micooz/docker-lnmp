@@ -45,7 +45,7 @@ COPY www/conf.sh /conf.sh
 # RUN cd /www/bot && composer install 
 
 # Copy webhook.php && sethook.php to /www/bot
-COPY www/telegrambot/*.php /www/bot/
+# COPY www/telegrambot/*.php /www/bot/
 
 
 # run sshd
