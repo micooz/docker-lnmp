@@ -39,4 +39,4 @@ sndnvaps <sndnvaps@gmail.com>
 
 MIT
 
-  [1]: architecture.svg
+  [1]: architecture.png
