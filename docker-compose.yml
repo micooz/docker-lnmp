@@ -25,7 +25,7 @@ fpm:
     - ./app/src:/usr/share/nginx/html
     # Your php.ini
     - ./php-fpm/php.ini-production:/usr/local/etc/php/php.ini:ro
-  environment:
+  # environment:
     # Set your APP env variables here:
     # - APP_KEY=
     # - DB_HOST=
