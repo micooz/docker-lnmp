@@ -1,13 +1,19 @@
-FROM php:5.6-fpm
-MAINTAINER Micooz <micooz@hotmail.com>
+######
+# See: https://hub.docker.com/_/php/
+######
 
-RUN apt-get update
+FROM php:7.0.5-fpm
+MAINTAINER micooz <micooz@hotmail.com>
 
-# Do -dev installtion at first, because 'docker-php-ext-install'
-# will use these library to compile the sources before install.
-# see ..... for more information.
-RUN apt-get install -y libcurl4-gnutls-dev libpng-dev libmcrypt-dev libsqlite3-dev
-RUN docker-php-ext-install gd mcrypt mbstring json mysql pdo_sqlite pdo_mysql iconv exif
+######
+# You can install php extensions using docker-php-ext-install
+######
 
-# Change your php settings in php.ini and copy it to the right path.
-COPY php-fpm/php.ini /usr/local/etc/php/php.ini
+RUN apt-get update && apt-get install -y \
+        libfreetype6-dev \
+        libjpeg62-turbo-dev \
+        libmcrypt-dev \
+        libpng12-dev \
+    && docker-php-ext-install -j$(nproc) iconv mcrypt \
+    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+    && docker-php-ext-install -j$(nproc) gd
