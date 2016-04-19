@@ -1,72 +1,42 @@
 # Introduction
 
-This project contains Dockerfiles that power `apporz.com` -- my personal website.
+Deploy lnmp(Linux, Nginx, MySQL, PHP7) using docker.
+
 I want to share my ideas and designs about Web-Deploying using Docker with you.
 
-# Structure
+### Architecture
 
-![structure][1]
+![architecture][1]
 
-The whole app is divided into four Containers:
+The whole app is divided into three Containers:
 
-1. Nginx is running in `Nginx` Container. Recieves requests from Clients then respond.
-2. My App business-logic code and scripts is located at `WWW` Container. It just stores php scripts and static files.
-3. PHP or PHP-FPM is put in `PHP-FPM` Container, it fetches php scripts from `WWW` then interpretes and executes them, making response to Nginx Server.
-If necessary, it will connect to `MySQL` server as well.
-4. Considering the flexibility and security, `MySQL` server must be independent of other containers.
+1. Nginx is running in `Nginx` Container, which handles requests and makes responses.
+2. PHP or PHP-FPM is put in `PHP-FPM` Container, it retrieves php scripts from host, interprets, executes then responses to Nginx. If necessary, it will connect to `MySQL` as well.
+3. MySQL lies in `MySQL` Container, 
 
-# Build and Run
+Our app scripts are located on host, you can edit files directly without rebuilding/restarting whole images/containers.
 
-### Build Images
+### Build and Run
 
-At first, you should have had [Docker](https://docs.docker.com) installed.
+At first, you should have had [Docker](https://docs.docker.com) and [Docker Compose](https://docs.docker.com/compose) installed.
 
-    # build Nginx Image
-    $ sudo docker build --tag micooz/nginx -f nginx/Dockerfile .
-    
-    # build PHP-FPM Image
-    $ sudo docker build --tag micooz/php-fpm -f php-fpm/Dockerfile .
-    
-    # build WWW Image
-    $ sudo docker build --tag micooz/www -f www/Dockerfile .
-    
-    # pull MySQL Official Image
-    $ sudo docker pull mysql:latest
+Without building images one by one, you can make use of `docker-compose` and simply issue:
 
-### Run Containers
+    $ sudo docker-compose up
 
-You must run the contaners in the following sequence:
+For more operations to containers, please refer to:
 
-1. MySQL Container
-2. WWW Container
-3. PHP-FPM Container
-4. Nginx Container
+    $ sudo docker-compose --help
 
-The first two of which can be exchanged.
+Check out your https://\<docker-host\> and have fun :beer:
 
-    # Run MySQL Container
-    $ sudo docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql
-    # see https://github.com/docker-library/docs/tree/master/mysql
-    
-    # Run WWW Container
-    $ sudo docker run --name www -d micooz/www
-    
-    # Run PHP-FPM Container
-    $ sudo docker run --name php-fpm --volumes-from www --link mysql:mysql -d micooz/php-fpm
-    # see https://github.com/docker-library/docs/tree/master/php
-    
-    # Run Nginx Container
-    $ sudo docker run --name nginx -p 80:80 -p 443:443 --volumes-from www --link php-fpm:fpmservice -d micooz/nginx
-    # see https://github.com/docker-library/docs/tree/master/nginx
-    
-Have fun!
-
-# Author
+### Contributors
 
 Micooz <micooz@hotmail.com>
+sndnvaps <sndnvaps@gmail.com>
 
-# License
+### License
 
 MIT
 
-  [1]: structure.png
+  [1]: architecture.svg
