@@ -11,8 +11,8 @@ nginx:
     - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
     - ./nginx/conf.d/:/etc/nginx/conf.d/:ro
     # certificates
-    - ./nginx/ca/server.crt/:/etc/nginx/server.crt:ro
-    - ./nginx/ca/server.key/:/etc/nginx/server.key:ro
+    # - ./nginx/ca/server.crt/:/etc/nginx/server.crt:ro
+    # - ./nginx/ca/server.key/:/etc/nginx/server.key:ro
   links:
     - fpm:__DOCKER_PHP_FPM__
 
