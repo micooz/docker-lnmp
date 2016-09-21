@@ -45,4 +45,4 @@ mysql:
     # NOTE: your data will be stored in ./mysql
     - ./mysql:/var/lib/mysql
   environment:
-    - MYSQL_ROOT_PASSWORD=your_mysql_password
+    - MYSQL_ROOT_PASSWORD=root
