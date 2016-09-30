@@ -50,5 +50,6 @@ mysql:
   volumes:
     # NOTE: your data will be stored in ./mysql
     - ./mysql:/var/lib/mysql
+    - ./mysql/custom:/etc/mysql/conf.d
   environment:
     - MYSQL_ROOT_PASSWORD=root
