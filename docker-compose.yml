@@ -2,9 +2,7 @@
 nginx:
   image: nginx:latest
   ports:
-    - "80:80"
-    - "8080:8080"
-    - "88:88"
+    - "8080:80"
     - "443:443"
   volumes:
     # app
@@ -36,10 +34,6 @@ fpm:
     # - DB_PASSWORD=
   links:
     - mysql:mysql
-  extra_hosts:
-      - "nuodeag.com:172.17.0.1"
-      - "nuodeconsole.com:172.17.0.1"
-      - "muodeservice.com:172.17.0.1"
 
 # database
 mysql:
@@ -50,6 +44,6 @@ mysql:
   volumes:
     # NOTE: your data will be stored in ./mysql
     - ./mysql:/var/lib/mysql
-    - ./mysql/custom:/etc/mysql/conf.d
+    - ./mysqlcustom:/etc/mysql/conf.d
   environment:
-    - MYSQL_ROOT_PASSWORD=root
+    - MYSQL_ROOT_PASSWORD=Rojer23333
