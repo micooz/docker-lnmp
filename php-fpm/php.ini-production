@@ -199,7 +199,7 @@ engine = On
 ; Development Value: Off
 ; Production Value: Off
 ; http://php.net/short-open-tag
-short_open_tag = Off
+short_open_tag = On
 
 ; Allow ASP-style <% %> tags.
 ; http://php.net/asp-tags
@@ -911,6 +911,8 @@ default_socket_timeout = 60
 ;extension=php_tidy.dll
 ;extension=php_xmlrpc.dll
 ;extension=php_xsl.dll
+extension=memcache.so
+
 
 ;;;;;;;;;;;;;;;;;;;
 ; Module Settings ;

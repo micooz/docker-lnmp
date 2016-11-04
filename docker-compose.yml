@@ -2,7 +2,8 @@
 nginx:
   image: nginx:latest
   ports:
-    - "8080:80"
+    - "80:80"
+    - "8080:8080"
     - "443:443"
   volumes:
     # app
@@ -34,6 +35,13 @@ fpm:
     # - DB_PASSWORD=
   links:
     - mysql:mysql
+    - memcached:memcached
+
+#memcached
+memcached:
+    image: memcached:latest
+    ports:
+        - "11211:11211"
 
 # database
 mysql:
